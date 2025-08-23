@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue JS</title>
+
+    <!-- Vue cdn link  -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <style>
+      .box-container {
+        display: flex;
+      }
+
+      .box {
+        width: 150px;
+        height: 150px;
+        background-color: aqua;
+        margin: 20px;
+        text-align: center;
+        line-height: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Vue3 learning</h1>
+
+    <div id="app">
+      <div v-if="display">
+        <h2>Book title: {{title}}</h2>
+        <h3>Printed from: {{print}}</h3>
+        <strong>Edition: {{edition}}</strong>
+
+        <br />
+
+        <button
+          style="padding: 5px; margin: 10px"
+          v-on:click="edition='5th edition'"
+        >
+          Change Edition
+        </button>
+
+        <hr />
+        <p>Count = {{count}}</p>
+        <button v-on:click="count++">increase count</button>
+        <button v-on:click="count--">decrease count</button>
+
+        <hr />
+
+        <h1>heading: {{heading}}</h1>
+        <button v-on:click="changeHeading">change heading to APOLO 11</button>
+      </div>
+
+      <hr />
+
+      <div class="box-container" v-if="display">
+        <div class="box" @mouseOver="mouseOverHandler($event, 'data')">
+          mouse over
+        </div>
+        <div class="box" @mouseLeave="mouseLeaveHandler">mouse leave</div>
+        <div class="box" @dblclick="dbclickHandler">double click</div>
+      </div>
+
+      <button style="margin: 10px" @click="display = !display">
+        <span v-if="!display">show</span>
+        <span v-if="display">hide</span>
+      </button>
+      <hr />
+
+      <div v-for="book in books">
+        <h3>book name : {{book.name}}</h3>
+        <p>publish by : {{book.print}}</p>
+        <i>CEFR level: {{book.level}}</i>
+        <p>book category: {{book.category}}</p>
+        <hr />
+      </div>
+
+      <a :href="link">Go to google</a>
+      <br />
+      <a v-bind:href="link">Go to google v-bind</a>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
