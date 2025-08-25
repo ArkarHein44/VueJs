@@ -21,6 +21,9 @@
         text-align: center;
         line-height: 150px;
       }
+      .favourate {
+        background-color: yellowgreen;
+      }
     </style>
   </head>
   <body>
@@ -69,10 +72,13 @@
       <hr />
 
       <div v-for="book in books">
-        <h3>book name : {{book.name}}</h3>
-        <p>publish by : {{book.print}}</p>
-        <i>CEFR level: {{book.level}}</i>
-        <p>book category: {{book.category}}</p>
+        <li :class="{favourate:book.isFav}">
+          <h3>book name : {{book.name}}</h3>
+          <img :src="book.img" alt="" width="150px" height="200px" />
+          <p>publish by : {{book.print}}</p>
+          <i>CEFR level: {{book.level}}</i>
+          <p>book category: {{book.category}}</p>
+        </li>
         <hr />
       </div>
 
