@@ -71,8 +71,8 @@
       </button>
       <hr />
 
-      <div v-for="book in books">
-        <li :class="{favourate:book.isFav}">
+      <div v-for="book in filteredBooks">
+        <li :class="{favourate:book.isFav}" @click="toggle(book)">
           <h3>book name : {{book.name}}</h3>
           <img :src="book.img" alt="" width="150px" height="200px" />
           <p>publish by : {{book.print}}</p>

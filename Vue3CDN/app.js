@@ -49,6 +49,16 @@ const app = Vue.createApp({
     dbclickHandler() {
       console.log("double click is working");
     },
+    toggle(book) {
+      book.isFav = !book.isFav;
+    },
+  },
+  computed: {
+    filteredBooks() {
+      return this.books.filter((book) => {
+        return book.isFav;
+      });
+    },
   },
 });
 

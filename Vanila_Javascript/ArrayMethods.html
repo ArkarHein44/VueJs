@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+
+
+    <script>
+        numbers = [1,2,3,4,5,6,7,8,9];      
+
+        const odd = numbers.filter(num=>num % 2 === 1);
+        console.log(odd);
+
+        const even = numbers.filter(num=>num % 2 === 0);
+        console.log(even);
+
+        const sumOfOdd = odd.reduce((sum,num)=> sum+num);
+        console.log(sumOfOdd);
+
+        const sumOfEven = even.reduce((sum,num)=>sum+num);
+        console.log(sumOfEven);
+
+        const test = numbers.reduce((accu,cur,index)=> {
+            console.log(`accu = ${accu} cur = ${cur} index = ${index} \n`);
+            return accu+cur;
+        });
+
+        const testini = numbers.reduce((accu,cur,index)=> {
+            console.log(`accu = ${accu} cur = ${cur} index = ${index} \n`);
+            return accu+cur;
+        },1);
+        
+    
+
+    </script>
+  </body>
+</html>
+
